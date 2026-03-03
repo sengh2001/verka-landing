@@ -11,7 +11,7 @@ ENV PATH="/opt/venv/bin:$PATH"
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip \
- && pip install --no-cache-dir -r requirements.txt
+  && pip install --no-cache-dir -r requirements.txt
 
 
 # ────────────────────────────────────────────────────────────────────
@@ -30,9 +30,6 @@ ENV PATH="/opt/venv/bin:$PATH"
 
 # Copy application source
 COPY app/ ./app/
-
-# Copy environment file
-COPY .env .env
 
 # Ensure static & template directories exist
 RUN mkdir -p app/static app/templates
