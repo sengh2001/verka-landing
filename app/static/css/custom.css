@@ -1,0 +1,157 @@
+/* ================================================================
+   Verka Dairy — Custom CSS
+   Brand colors, animations, and utility overrides
+   ================================================================ */
+
+:root {
+  --verka-red: #0EA5E9;
+  --verka-red-dark: #0284C7;
+  --verka-red-light: #BAE6FD;
+  --verka-cream: #F0F9FF;
+  --verka-gold: #f5a623;
+  --verka-text: #0c2340;
+}
+
+/* ── Smooth scrolling ───────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Scrollbar styling ──────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--verka-red);
+  border-radius: 3px;
+}
+
+/* ── Hero gradient overlay ──────────────────────────────────────── */
+.hero-overlay {
+  background: linear-gradient(135deg,
+      rgba(14, 165, 233, 0.85) 0%,
+      rgba(2, 132, 199, 0.75) 50%,
+      rgba(12, 35, 64, 0.6) 100%);
+}
+
+/* ── Card hover lift ────────────────────────────────────────────── */
+.card-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(14, 165, 233, 0.18);
+}
+
+/* ── Red button ─────────────────────────────────────────────────── */
+.btn-verka {
+  background: var(--verka-red);
+  color: #fff;
+  padding: 0.85rem 2rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 15px rgba(14, 165, 233, 0.35);
+}
+
+.btn-verka:hover {
+  background: var(--verka-red-dark);
+  transform: scale(1.04);
+  box-shadow: 0 8px 24px rgba(14, 165, 233, 0.45);
+}
+
+/* ── Outline button ─────────────────────────────────────────────── */
+.btn-verka-outline {
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.25s, color 0.25s;
+}
+
+.btn-verka-outline:hover {
+  background: #fff;
+  color: var(--verka-red);
+}
+
+/* ── Section title underline ────────────────────────────────────── */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 4px;
+  background: var(--verka-red);
+  border-radius: 2px;
+  margin: 0.6rem auto 0;
+}
+
+/* ── Pulse badge ────────────────────────────────────────────────── */
+@keyframes pulse-badge {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.65;
+  }
+}
+
+.pulse-badge {
+  animation: pulse-badge 2s ease-in-out infinite;
+}
+
+/* ── Fade-in on scroll (JS toggles .visible) ────────────────────── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Navbar scroll shadow ───────────────────────────────────────── */
+.navbar-scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ── Combo badge ribbon ─────────────────────────────────────────── */
+.ribbon {
+  position: absolute;
+  top: 16px;
+  right: -8px;
+  background: var(--verka-gold);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 3px 14px;
+  letter-spacing: 0.06em;
+  border-radius: 2px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.ribbon::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -8px;
+  border-width: 0 8px 8px 0;
+  border-style: solid;
+  border-color: transparent #b07d10 transparent transparent;
+}

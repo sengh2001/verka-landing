@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Verka Dairy franchise at IIT Ropar — fresh milk, lassi, paneer, ghee, ice cream and more. Quality dairy products for students and staff." />
+  <title>{{ app_title }}</title>
+
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            verka: {
+              red: '#0EA5E9',
+              dark: '#0284C7',
+              light: '#BAE6FD',
+              cream: '#F0F9FF',
+              gold: '#f5a623',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/static/css/custom.css" />
+</head>
+
+<body class="font-sans bg-white text-verka-text antialiased">
+
+  <!-- ══════════════════════════════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════════════════════════════ -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Brand -->
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-verka-red flex items-center justify-center shadow-md">
+            <span class="text-white font-black text-sm">V</span>
+          </div>
+          <div>
+            <span class="text-verka-red font-black text-lg leading-none">VERKA</span><br />
+            <span class="text-gray-500 text-xs font-medium tracking-widest uppercase">Dairy · IIT Ropar</span>
+          </div>
+        </div>
+
+        <!-- Desktop Links -->
+        <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
+          <a href="#about" class="hover:text-verka-red transition-colors duration-200">About</a>
+          <a href="#products" class="hover:text-verka-red transition-colors duration-200">Products</a>
+          <a href="#combos" class="hover:text-verka-red transition-colors duration-200">Combos</a>
+          <a href="#location" class="hover:text-verka-red transition-colors duration-200">Location</a>
+          <a href="#contact" class="hover:text-verka-red transition-colors duration-200">Contact</a>
+          <a href="#contact" class="btn-verka text-sm py-2 px-5">Order Now</a>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button id="menu-btn" class="md:hidden p-2 rounded-md text-gray-600 hover:text-verka-red focus:outline-none"
+          aria-label="Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path id="ham-icon" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2 text-sm font-medium text-gray-700">
+        <a href="#about" class="block px-2 py-2 rounded hover:bg-verka-light">About</a>
+        <a href="#products" class="block px-2 py-2 rounded hover:bg-verka-light">Products</a>
+        <a href="#combos" class="block px-2 py-2 rounded hover:bg-verka-light">Combos</a>
+        <a href="#location" class="block px-2 py-2 rounded hover:bg-verka-light">Location</a>
+        <a href="#contact" class="block px-2 py-2 rounded hover:bg-verka-light">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+     HERO SECTION
+══════════════════════════════════════════════════════════════════ -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+    <!-- Background Image -->
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+      style="background-image: url('/static/iit_ropar_banner.webp');"></div>
+    <!-- Dark blue overlay for readability -->
+    <div class="absolute inset-0 bg-gradient-to-br from-sky-900/85 via-sky-800/80 to-blue-950/90"></div>
+
+    <!-- Decorative circles -->
+    <div class="absolute top-[-80px] right-[-80px] w-96 h-96 bg-white/5 rounded-full"></div>
+    <div class="absolute bottom-[-60px] left-[-60px] w-72 h-72 bg-white/5 rounded-full"></div>
+    <div class="absolute top-1/3 right-1/4 w-32 h-32 bg-white/5 rounded-full"></div>
+
+    <!-- Floating emojis (decorative) -->
+    <div class="absolute text-6xl opacity-10 top-20 left-10 animate-bounce" style="animation-delay:0s">🥛</div>
+    <div class="absolute text-5xl opacity-10 top-32 right-20 animate-bounce" style="animation-delay:0.5s">🍦</div>
+    <div class="absolute text-4xl opacity-10 bottom-32 left-1/4 animate-bounce" style="animation-delay:1s">🧀</div>
+    <div class="absolute text-5xl opacity-10 bottom-20 right-1/3 animate-bounce" style="animation-delay:1.5s">🥤</div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+      <!-- Badge -->
+      <div
+        class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full px-4 py-1.5 text-sm font-medium mb-6 pulse-badge">
+        <span class="w-2 h-2 bg-green-400 rounded-full"></span>
+        Now Open · IIT Ropar Campus
+      </div>
+
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-6 drop-shadow-lg">
+        Fresh Dairy<br />
+        <span class="text-yellow-300">Delights</span> at<br />
+        IIT Ropar
+      </h1>
+
+      <p class="text-lg sm:text-xl text-white/85 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+        Pure · Fresh · Affordable — Verka brings Punjab's finest dairy products right to your campus.
+        Fuel your study sessions, morning runs, and late-night cravings.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="#location" class="btn-verka bg-white text-verka-red hover:bg-verka-cream text-base">
+          📍 Visit Us Today
+        </a>
+        <a href="#products" class="btn-verka-outline text-base">
+          Explore Products →
+        </a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="mt-16 grid grid-cols-3 gap-6 sm:gap-10 max-w-lg mx-auto">
+        <div class="text-center">
+          <div class="text-3xl font-black text-yellow-300">21+</div>
+          <div class="text-white/70 text-xs mt-1 font-medium uppercase tracking-wider">Products</div>
+        </div>
+        <div class="text-center border-x border-white/20">
+          <div class="text-3xl font-black text-yellow-300">100%</div>
+          <div class="text-white/70 text-xs mt-1 font-medium uppercase tracking-wider">Pure</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-black text-yellow-300">Daily</div>
+          <div class="text-white/70 text-xs mt-1 font-medium uppercase tracking-wider">Fresh</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 animate-bounce">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+     ABOUT US
+══════════════════════════════════════════════════════════════════ -->
+  <section id="about" class="py-24 bg-verka-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Text -->
+        <div class="fade-in">
+          <p class="text-verka-red font-semibold text-sm uppercase tracking-widest mb-3">Who We Are</p>
+          <h2 class="text-4xl font-black text-gray-900 mb-6 section-title !text-left after:!mx-0">
+            Punjab's Most Trusted<br />Dairy Brand — Now On Campus
+          </h2>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            <strong class="text-gray-800">Verka</strong> is the flagship brand of <strong class="text-gray-800">MILKFED
+              Punjab</strong> — a cooperative renowned for delivering fresh, pure, and affordable dairy products across
+            northern India for over 50 years.
+          </p>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            Our franchise inside <strong class="text-gray-800">IIT Ropar Campus</strong> brings this legacy of quality
+            directly to students, faculty, and staff. Every product is sourced fresh daily from MILKFED's certified
+            processing plants, ensuring you get the purest dairy with zero compromises.
+          </p>
+          <p class="text-gray-600 leading-relaxed mb-8">
+            Whether it's a glass of cold lassi after a lab session or a tub of paneer for hostel cooking — we've got you
+            covered.
+          </p>
+
+          <!-- Highlights -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="flex items-start gap-3 bg-white rounded-xl p-4 shadow-sm">
+              <span class="text-2xl">🌿</span>
+              <div>
+                <div class="font-bold text-gray-800 text-sm">100% Pure</div>
+                <div class="text-gray-500 text-xs">No additives or preservatives</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 bg-white rounded-xl p-4 shadow-sm">
+              <span class="text-2xl">🏭</span>
+              <div>
+                <div class="font-bold text-gray-800 text-sm">MILKFED Certified</div>
+                <div class="text-gray-500 text-xs">Government cooperative trust</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 bg-white rounded-xl p-4 shadow-sm">
+              <span class="text-2xl">💰</span>
+              <div>
+                <div class="font-bold text-gray-800 text-sm">Student Prices</div>
+                <div class="text-gray-500 text-xs">Pocket-friendly combos</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 bg-white rounded-xl p-4 shadow-sm">
+              <span class="text-2xl">⚡</span>
+              <div>
+                <div class="font-bold text-gray-800 text-sm">Fresh Daily</div>
+                <div class="text-gray-500 text-xs">Delivered every morning</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual card -->
+        <div class="fade-in relative">
+          <div
+            class="relative bg-gradient-to-br from-verka-red to-sky-800 rounded-3xl p-8 text-white shadow-2xl overflow-hidden">
+            <!-- Pattern -->
+            <div class="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full translate-x-16 -translate-y-16"></div>
+            <div class="absolute bottom-0 left-0 w-36 h-36 bg-white/5 rounded-full -translate-x-10 translate-y-10">
+            </div>
+
+            <div class="relative z-10 text-center">
+              <div class="text-8xl mb-6">🥛</div>
+              <h3 class="text-2xl font-black mb-2">VERKA DAIRY</h3>
+              <p class="text-white/70 text-sm mb-6">MILKFED Punjab · Est. 1973</p>
+              <div class="grid grid-cols-2 gap-3 text-center">
+                <div class="bg-white/10 rounded-xl p-3">
+                  <div class="text-xl font-black text-yellow-300">50+</div>
+                  <div class="text-xs text-white/70">Years of Trust</div>
+                </div>
+                <div class="bg-white/10 rounded-xl p-3">
+                  <div class="text-xl font-black text-yellow-300">1M+</div>
+                  <div class="text-xs text-white/70">Happy Customers</div>
+                </div>
+                <div class="bg-white/10 rounded-xl p-3">
+                  <div class="text-xl font-black text-yellow-300">FSSAI</div>
+                  <div class="text-xs text-white/70">Certified</div>
+                </div>
+                <div class="bg-white/10 rounded-xl p-3">
+                  <div class="text-xl font-black text-yellow-300">ISO</div>
+                  <div class="text-xs text-white/70">Quality Assured</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Campus badge -->
+          <div
+            class="absolute -bottom-5 -right-5 bg-verka-gold text-white font-black text-sm py-3 px-5 rounded-2xl shadow-lg rotate-2">
+            📍 IIT Ropar Campus
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+     OUR PRODUCTS
+══════════════════════════════════════════════════════════════════ -->
+  <section id="products" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Header -->
+      <div class="text-center mb-16 fade-in">
+        <p class="text-verka-red font-semibold text-sm uppercase tracking-widest mb-3">What We Offer</p>
+        <h2 class="text-4xl font-black text-gray-900 mb-4 section-title">Our Products</h2>
+        <p class="text-gray-500 max-w-xl mx-auto text-base">
+          Fresh from the Verka outlet inside IIT Ropar — paranthas, chai, dairy essentials, and more.
+        </p>
+      </div>
+
+      <!-- Menu Grid (populated by JS from /api/products) -->
+      <div id="product-grid" class="space-y-8">
+        <!-- Skeleton loaders -->
+        <div class="animate-pulse bg-gray-100 rounded-2xl h-44"></div>
+        <div class="animate-pulse bg-gray-100 rounded-2xl h-44"></div>
+        <div class="animate-pulse bg-gray-100 rounded-2xl h-44"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+     STUDENT COMBOS
+══════════════════════════════════════════════════════════════════ -->
+  <section id="combos" class="py-24 bg-verka-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Header -->
+      <div class="text-center mb-16 fade-in">
+        <p class="text-verka-red font-semibold text-sm uppercase tracking-widest mb-3">Made for Campus Life</p>
+        <h2 class="text-4xl font-black text-gray-900 mb-4 section-title">Special Student Combos</h2>
+        <p class="text-gray-500 max-w-xl mx-auto">Curated packs at unbeatable prices — because every rupee matters.</p>
+      </div>
+
+      <!-- Combo Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- Combo 1 -->
+        <div class="relative card-lift bg-white rounded-3xl shadow-md p-8 border border-gray-100 fade-in">
+          <div class="ribbon">POPULAR</div>
+          <div class="text-5xl mb-4">🌅</div>
+          <h3 class="text-xl font-black text-gray-900 mb-1">Morning Starter</h3>
+          <p class="text-verka-red font-bold text-2xl mb-3">₹75</p>
+          <ul class="text-gray-600 text-sm space-y-1.5 mb-6">
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 500ml Full Cream Milk</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 1 Flavored Milk Tetra</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Save <strong>₹12</strong> vs. MRP
+            </li>
+          </ul>
+          <a href="#contact" class="btn-verka block text-center text-sm py-2.5">Get This Deal</a>
+        </div>
+
+        <!-- Combo 2 -->
+        <div
+          class="relative card-lift bg-gradient-to-br from-verka-red to-sky-800 text-white rounded-3xl shadow-xl p-8 border-0 fade-in scale-105">
+          <div
+            class="absolute top-0 right-0 bg-yellow-400 text-gray-900 font-black text-xs py-1.5 px-4 rounded-bl-2xl rounded-tr-3xl">
+            ⭐ BEST VALUE</div>
+          <div class="text-5xl mb-4">🍱</div>
+          <h3 class="text-xl font-black mb-1">Full Week Pack</h3>
+          <p class="text-yellow-300 font-bold text-2xl mb-3">₹349</p>
+          <ul class="text-white/80 text-sm space-y-1.5 mb-6">
+            <li class="flex items-center gap-2"><span class="text-yellow-300">✓</span> 7× 500ml Toned Milk</li>
+            <li class="flex items-center gap-2"><span class="text-yellow-300">✓</span> 3× Sweet Lassi</li>
+            <li class="flex items-center gap-2"><span class="text-yellow-300">✓</span> 100g Paneer</li>
+            <li class="flex items-center gap-2"><span class="text-yellow-300">✓</span> Save <strong>₹60</strong> vs. MRP
+            </li>
+          </ul>
+          <a href="#contact"
+            class="block text-center bg-white text-verka-red font-bold rounded-full py-2.5 text-sm hover:bg-yellow-50 transition-colors">Get
+            This Deal</a>
+        </div>
+
+        <!-- Combo 3 -->
+        <div class="relative card-lift bg-white rounded-3xl shadow-md p-8 border border-gray-100 fade-in">
+          <div class="ribbon" style="background:#7c3aed">SWEET TREAT</div>
+          <div class="text-5xl mb-4">🍦</div>
+          <h3 class="text-xl font-black text-gray-900 mb-1">Ice Cream Fiesta</h3>
+          <p class="text-verka-red font-bold text-2xl mb-3">₹99</p>
+          <ul class="text-gray-600 text-sm space-y-1.5 mb-6">
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 4 Ice Cream Cups (any flavour)
+            </li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 2× Flavored Milk</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Save <strong>₹21</strong> vs. MRP
+            </li>
+          </ul>
+          <a href="#contact" class="btn-verka block text-center text-sm py-2.5">Get This Deal</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+     LOCATION
+══════════════════════════════════════════════════════════════════ -->
+  <section id="location" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-16 fade-in">
+        <p class="text-verka-red font-semibold text-sm uppercase tracking-widest mb-3">Find Us</p>
+        <h2 class="text-4xl font-black text-gray-900 mb-4 section-title">Our Location</h2>
+        <p class="text-gray-500 max-w-xl mx-auto">Right inside the campus — no need to go off-campus for fresh dairy.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-start fade-in">
+
+        <!-- Map -->
+        <div class="rounded-3xl overflow-hidden shadow-xl border border-gray-100 h-72 lg:h-96">
+          <iframe title="IIT Ropar Location"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13713.8228518386!2d76.5173161!3d30.9715181!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390554c1537dc753%3A0x7dff8eecdf4119d6!2sVerka!5e0!3m2!1sen!2sin!4v1714488346083!5m2!1sen!2sin"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <!-- Info -->
+        <div class="space-y-6">
+          <div class="flex items-start gap-4 bg-verka-cream rounded-2xl p-5">
+            <div
+              class="w-12 h-12 bg-verka-red rounded-xl flex items-center justify-center text-white text-xl flex-shrink-0">
+              📍</div>
+            <div>
+              <h4 class="font-bold text-gray-900 mb-1">Address</h4>
+              <p class="text-gray-600 text-sm leading-relaxed">
+                Verka Dairy Outlet<br />
+                Near Computer Science and Engineering Building<br />
+                IIT Ropar, Rupnagar, Punjab — 140001
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 bg-verka-cream rounded-2xl p-5">
+            <div
+              class="w-12 h-12 bg-verka-red rounded-xl flex items-center justify-center text-white text-xl flex-shrink-0">
+              🕗</div>
+            <div>
+              <h4 class="font-bold text-gray-900 mb-1">Opening Hours</h4>
+              <div class="text-gray-600 text-sm space-y-0.5">
+                <div class="flex justify-between gap-8"><span>Monday – Friday</span><span
+                    class="font-semibold text-gray-800">7:00 AM – 9:00 PM</span></div>
+                <div class="flex justify-between gap-8"><span>Saturday</span><span
+                    class="font-semibold text-gray-800">8:00 AM – 8:00 PM</span></div>
+                <div class="flex justify-between gap-8"><span>Sunday</span><span
+                    class="font-semibold text-gray-800">9:00 AM – 6:00 PM</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 bg-verka-cream rounded-2xl p-5">
+            <div
+              class="w-12 h-12 bg-verka-red rounded-xl flex items-center justify-center text-white text-xl flex-shrink-0">
+              🚶</div>
+            <div>
+              <h4 class="font-bold text-gray-900 mb-1">How to Reach</h4>
+              <p class="text-gray-600 text-sm leading-relaxed">
+                From the main gate, walk straight to the Computer Science and Engineering Building. The Verka outlet is
+                just behind the CSE building. Near CSB
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+     CONTACT
+══════════════════════════════════════════════════════════════════ -->
+  <section id="contact" class="py-24 bg-verka-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-16 fade-in">
+        <p class="text-verka-red font-semibold text-sm uppercase tracking-widest mb-3">Get In Touch</p>
+        <h2 class="text-4xl font-black text-gray-900 mb-4 section-title">Contact Us</h2>
+        <p class="text-gray-500 max-w-xl mx-auto">Have a bulk order, event catering request, or just want to say hi?</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 fade-in">
+        <!-- Phone -->
+        <div class="card-lift bg-white rounded-3xl p-8 text-center shadow-sm border border-gray-100">
+          <div class="w-16 h-16 bg-verka-light rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4">📞
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2">Call Us</h3>
+          <p class="text-gray-500 text-sm mb-4">Mon–Sat, 8 AM–8 PM</p>
+          <a href="tel:+919914980455" class="text-verka-red font-bold hover:underline">+91 99149 80455</a>
+        </div>
+
+        <!-- WhatsApp -->
+        <div class="card-lift bg-white rounded-3xl p-8 text-center shadow-sm border border-gray-100">
+          <div class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4">💬</div>
+          <h3 class="font-bold text-gray-900 mb-2">WhatsApp Order</h3>
+          <p class="text-gray-500 text-sm mb-4">Quick reply within 30 minutes</p>
+          <a href="https://wa.me/919914980455?text=Hi%20Verka%20IIT%20Ropar!%20I%20want%20to%20place%20an%20order."
+            target="_blank" rel="noopener"
+            class="inline-block bg-green-500 text-white font-semibold rounded-full px-5 py-2 text-sm hover:bg-green-600 transition-colors">
+            Chat on WhatsApp
+          </a>
+        </div>
+
+        <!-- Email -->
+        <div class="card-lift bg-white rounded-3xl p-8 text-center shadow-sm border border-gray-100">
+          <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4">✉️</div>
+          <h3 class="font-bold text-gray-900 mb-2">Email</h3>
+          <p class="text-gray-500 text-sm mb-4">For bulk orders &amp; partnerships</p>
+          <a href="mailto:verka.iitrpr@gmail.com"
+            class="text-verka-red font-bold hover:underline break-all text-sm">verka.iitrpr@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════════════════ -->
+  <footer class="bg-gray-950 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+
+        <!-- Brand -->
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-verka-red flex items-center justify-center">
+              <span class="text-white font-black">V</span>
+            </div>
+            <div>
+              <div class="text-white font-black text-xl">VERKA DAIRY</div>
+              <div class="text-gray-400 text-xs tracking-widest uppercase">IIT Ropar Campus</div>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed max-w-sm">
+            MILKFED Punjab's trusted dairy brand. Serving pure, fresh, and affordable dairy products to the IIT Ropar
+            community since day one.
+          </p>
+          <!-- Social -->
+          <div class="flex gap-3 mt-5">
+            <a href="#" aria-label="Instagram"
+              class="w-9 h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-verka-red transition-colors text-sm">📸</a>
+            <a href="#" aria-label="Facebook"
+              class="w-9 h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-verka-red transition-colors text-sm">👍</a>
+            <a href="#" aria-label="Twitter"
+              class="w-9 h-9 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-verka-red transition-colors text-sm">🐦</a>
+          </div>
+        </div>
+
+        <!-- Hours -->
+        <div>
+          <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Opening Hours</h4>
+          <ul class="text-gray-400 text-sm space-y-2">
+            <li class="flex justify-between gap-4"><span>Mon – Fri</span><span class="text-white">7 AM – 9 PM</span>
+            </li>
+            <li class="flex justify-between gap-4"><span>Saturday</span><span class="text-white">8 AM – 8 PM</span></li>
+            <li class="flex justify-between gap-4"><span>Sunday</span><span class="text-white">9 AM – 6 PM</span></li>
+          </ul>
+          <div
+            class="mt-4 inline-flex items-center gap-1.5 bg-green-500/10 text-green-400 text-xs px-3 py-1.5 rounded-full font-medium">
+            <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
+            Currently Open
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Quick Links</h4>
+          <ul class="text-gray-400 text-sm space-y-2">
+            <li><a href="#about" class="hover:text-verka-red transition-colors">About Us</a></li>
+            <li><a href="#products" class="hover:text-verka-red transition-colors">Products</a></li>
+            <li><a href="#combos" class="hover:text-verka-red transition-colors">Student Combos</a></li>
+            <li><a href="#location" class="hover:text-verka-red transition-colors">Location</a></li>
+            <li><a href="#contact" class="hover:text-verka-red transition-colors">Contact</a></li>
+            <li><a href="/api/products" target="_blank" class="hover:text-verka-red transition-colors">API →</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div
+        class="border-t border-gray-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-gray-500 text-xs">
+        <p>© 2026 Verka Dairy — IIT Ropar Franchise. A MILKFED Punjab outlet.</p>
+        <p>Built with ❤️ for the IIT Ropar community.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════════════════════════════ -->
+  <script>
+    // ── Navbar shadow on scroll ─────────────────────────────────────
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('navbar-scrolled', window.scrollY > 20);
+    });
+
+    // ── Mobile menu toggle ──────────────────────────────────────────
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+    document.querySelectorAll('#mobile-menu a').forEach(a => {
+      a.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden'));
+    });
+
+    // ── Intersection Observer fade-in ───────────────────────────────
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    fadeEls.forEach(el => observer.observe(el));
+
+    // ── Fetch & render products from API — grouped by category ──────
+    const CATEGORY_META = {
+      'Prantha': { emoji: '🥙', grad: 'from-orange-500 to-amber-500' },
+      'Tea & Beverages': { emoji: '☕', grad: 'from-yellow-600 to-amber-700' },
+      'Dairy Products': { emoji: '🥛', grad: 'from-sky-500 to-sky-800' },
+    };
+
+    async function loadProducts() {
+      const grid = document.getElementById('product-grid');
+      try {
+        const res = await fetch('/api/products');
+        const data = await res.json();
+
+        // Group by category, preserving insertion order
+        const grouped = {};
+        data.forEach(p => {
+          if (!grouped[p.category]) grouped[p.category] = [];
+          grouped[p.category].push(p);
+        });
+
+        function priceCell(val) {
+          if (val === null || val === undefined)
+            return `<span class="text-gray-300">—</span>`;
+          return `<span class="font-semibold text-gray-800">${val}</span>`;
+        }
+
+        let html = '';
+        Object.entries(grouped).forEach(([cat, items], idx) => {
+          const meta = CATEGORY_META[cat] || { emoji: '🍽️', grad: 'from-sky-500 to-sky-800' };
+          const hasBoth = items.some(p => p.price_small && p.price_big);
+
+          html += `
+            <div class="fade-in bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden"
+                 style="transition-delay:${idx * 0.12}s">
+
+              <!-- Category header -->
+              <div class="bg-gradient-to-r ${meta.grad} px-6 py-4 flex items-center gap-3">
+                <span class="text-3xl">${meta.emoji}</span>
+                <h3 class="text-xl font-black text-white">${cat}</h3>
+                <span class="ml-auto bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full">${items.length} items</span>
+              </div>
+
+              <!-- Menu table -->
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead>
+                    <tr class="bg-gray-50 text-gray-400 text-xs uppercase tracking-wider">
+                      <th class="text-left px-6 py-3 font-semibold w-1/2">Item</th>
+                      ${hasBoth
+              ? `<th class="text-center px-6 py-3 font-semibold">Small</th>
+                           <th class="text-center px-6 py-3 font-semibold">Big</th>`
+              : `<th class="text-center px-6 py-3 font-semibold">Price</th>`
+            }
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-50">
+                    ${items.map((p, i) => `
+                      <tr class="${i % 2 === 1 ? 'bg-gray-50/40' : ''} hover:bg-sky-50/60 transition-colors duration-150">
+                        <td class="px-6 py-3.5">
+                          <div class="flex items-center gap-2.5">
+                            <span class="text-xl">${p.emoji}</span>
+                            <span class="font-medium text-gray-800">${p.name}</span>
+                          </div>
+                        </td>
+                        ${hasBoth
+                ? `<td class="text-center px-6 py-3.5">${priceCell(p.price_small)}</td>
+                             <td class="text-center px-6 py-3.5">
+                               ${p.price_big === null
+                  ? `<span class="text-xs bg-sky-100 text-sky-600 font-semibold px-2 py-0.5 rounded-full">Ask at counter</span>`
+                  : priceCell(p.price_big)
+                }
+                             </td>`
+                : `<td class="text-center px-6 py-3.5">
+                               ${p.price_big === null
+                  ? `<span class="text-xs bg-sky-100 text-sky-600 font-semibold px-2 py-0.5 rounded-full">Ask at counter</span>`
+                  : priceCell(p.price_big)
+                }
+                             </td>`
+              }
+                      </tr>
+                    `).join('')}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          `;
+        });
+
+        grid.innerHTML = html;
+
+        // Wire new fade-in blocks to the existing observer
+        grid.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+      } catch (err) {
+        grid.innerHTML = `<div class="text-center text-gray-400 py-12">Unable to load menu. Please refresh.</div>`;
+      }
+    }
+
+    loadProducts();
+  </script>
+
+</body>
+
+</html>

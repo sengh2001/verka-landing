@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: verka_landing
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    # Optional volume mount for live CSS/template edits during dev:
+    # volumes:
+    #   - ./app/static:/app/app/static
+    #   - ./app/templates:/app/app/templates
+    healthcheck:
+      test: [ "CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')" ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    labels:
+      - "com.verka.service=landing"
+      - "com.verka.campus=iit-ropar"
